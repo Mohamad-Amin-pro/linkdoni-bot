@@ -17,7 +17,7 @@ BOT_USERNAME = "linkdoni1_bot"
 OWNER_USERNAME = "Amir_X_2023"
 
 # 💾 شماره کارت برای رسید
-CARD_NUMBER = "5047061152529703""
+CARD_NUMBER = "5047061152529703"
 CARD_HOLDER = "صغرا پاریاب"
 
 # ✅ قیمت‌ها برگشت به حالت قبل:
