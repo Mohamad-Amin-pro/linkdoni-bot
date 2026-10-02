@@ -2,6 +2,9 @@ import requests
 import time
 import sqlite3
 from datetime import datetime
+from flask import Flask
+import threading
+import os
 
 # ==================== تنظیمات ====================
 BOT_TOKEN = "620956184:4zqEfC-Y0F9nXbZL653Yw5-nIZnkNYSEsng"
@@ -12,7 +15,24 @@ ADMIN_ID = 377993776
 SUPER_ADMIN_ID = 2021919317
 BOT_URL = f"https://tapi.bale.ai/bot{BOT_TOKEN}/"
 BOT_USERNAME = "linkdoni1_bot"
+# ═══ وب‌سرور کوچیک برای Render ═══
+web_app = Flask(__name__)
 
+@web_app.route('/')
+def home():
+    return "Linkdoni Bot is running"
+
+@web_app.route('/health')
+def health():
+    return "OK"
+
+def run_web():
+    port = int(os.environ.get("PORT", 8080))
+    web_app.run(host="0.0.0.0", port=port)
+
+def start_web():
+    threading.Thread(target=run_web, daemon=True).start()
+    
 # ✅ آیدی مالک برای پرداخت پاکت هدیه (بدون @)
 OWNER_USERNAME = "Amir_X_2023"
 
@@ -858,4 +878,5 @@ def main():
         time.sleep(0.5)
 
 if __name__ == "__main__":
+    start web()
     main()
